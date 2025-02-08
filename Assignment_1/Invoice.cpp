@@ -75,3 +75,9 @@ int Invoice::getInvoiceAmount() const
 
     return qtyPurchased * pricePerUnit;
 }
+
+// Destructor ================================================================================
+Invoice::~Invoice()
+{
+
+}

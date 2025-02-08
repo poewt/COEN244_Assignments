@@ -40,6 +40,9 @@ public:
 
     // Member Functions
     int getInvoiceAmount() const;
+
+    // Desctructor
+    ~Invoice();
 };
 
 
