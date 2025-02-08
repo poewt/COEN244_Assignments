@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Employee.h"
+#include <algorithm>
 using namespace std;
 
 void testDefaultEmployee()
@@ -84,6 +85,58 @@ void testEmployeeRaise()
 
 }
 
+bool comp(const Employee& emp1, const Employee& emp2)
+{
+    return emp1.getMonthlySalary() < emp2.getMonthlySalary();
+}
+
+bool testSortEmployeeSalary()
+{
+    cout << "======= Employee - Sort Employee Salary ========================" << endl;
+
+    Employee employees[] = {
+        Employee("Alice", "Smith", 3200),
+        Employee("Bob", "Johnson", 2900),
+        Employee("Charlie", "Williams", 3100),
+        Employee("David", "Brown", 2800),
+        Employee("Emma", "Davis", 3300),
+        Employee("Frank", "Miller", 2700),
+        Employee("Grace", "Wilson", 3000),
+        Employee("Henry", "Moore", 3400),
+        Employee("Isla", "Taylor", 2600),
+        Employee("Jack", "Anderson", 3500),
+        Employee("Kate", "Thomas", 2900),
+        Employee("Liam", "White", 3100),
+        Employee("Mia", "Harris", 3250),
+        Employee("Noah", "Martin", 2800),
+        Employee("Sam", "Rock", 2970),
+    };
+
+    const size_t size = sizeof(employees) / sizeof(employees[0]);
+    cout << size << endl;
+
+
+    // Using sort instead of qsort for performance and safety
+    sort(begin(employees), end(employees), comp);
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << i << ". " << employees[i].getFirstName() <<
+            "'s salary: " << employees[i].getMonthlySalary() << endl;
+
+        // Pass/Fail Test
+        if (
+            employees[i].getMonthlySalary() > employees[i + 1].getMonthlySalary() &&
+            i < (size - 1)
+            )
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 int main()
 {
@@ -94,6 +147,10 @@ int main()
     testNegativeSalaryConst();
     testNegativeSalarySetter();
     testEmployeeRaise();
+
+    string caseEmpSalSort = testSortEmployeeSalary() ? "PASS" : "FAIL";
+    cout << "The case for employee salary sort: " << caseEmpSalSort << endl;
+    
     cout << "================ End - Unit Testing ================" << endl;
 
     return 0;
