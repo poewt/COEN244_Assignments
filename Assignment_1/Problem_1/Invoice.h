@@ -1,6 +1,12 @@
-//
-// Created by jake on 2025-02-08.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 8, 2025
+ * COEN 244 D
+ * Assignment 1
+ * Problem 1
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #ifndef INVOICE_H
 #define INVOICE_H

@@ -5,6 +5,7 @@
  * COEN 244 D
  * Assignment 1
  * Problem 2
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
  */
 
 #include <iostream>

@@ -1,3 +1,13 @@
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 8, 2025
+ * COEN 244 D
+ * Assignment 1
+ * Problem 1
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
+
 #include <iostream>
 #include "Invoice.h"
 
@@ -268,13 +278,13 @@ bool testCloneInvoice()
 int main()
 {
     cout << "============ Start - Function Testing ============" << endl;
-    cout << "Test: " << (testDefaultInvoice() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testCustomInvoice() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testSetters() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testNegativeQty() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testNegativePrice() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testCopyInvoice() ? "pass" : "fail") << endl;
-    cout << "Test: " << (testCloneInvoice() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testDefaultInvoice() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testCustomInvoice() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testSetters() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testNegativeQty() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testNegativePrice() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testCopyInvoice() ? "PASS" : "FAIL") << endl;
+    cout << "Test: " << (testCloneInvoice() ? "PASS" : "FAIL") << endl;
     cout << "============ End - Function Testing ==============" << endl;
 
     cout << "============ Statistics ==========================" << endl;
