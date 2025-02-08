@@ -3,6 +3,11 @@
 
 using namespace std;
 
+void printSeparator()
+{
+    cout << "==============================================================================" << endl;
+}
+
 void testInvoice()
 {
     Invoice invoice;
@@ -16,6 +21,8 @@ void testInvoice()
 
     // Testing getInvoiceAmount
     cout << "Default invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    printSeparator();
 
     // Testing setters
     cout << "Setting new invoice parameters. " << endl;
@@ -33,7 +40,10 @@ void testInvoice()
     // Testing getInvoiceAmount
     cout << "New invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
+    printSeparator();
+
     // Testing negative amounts
+    cout << "Testing negative amounts" << endl;
     invoice.setQtyPurchased(-5);
     cout << "Negative qty invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
@@ -41,6 +51,7 @@ void testInvoice()
     invoice.setPricePerUnit(-12);
     cout << "Negative price per unit invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
+    printSeparator();
 
     // Testing second constructor
     Invoice testInvoice(
@@ -58,6 +69,8 @@ void testInvoice()
 
     cout << "Custom invoice amount: " << testInvoice.getInvoiceAmount() << "\n" << endl;
 
+    printSeparator();
+    
 }
 
 int main()
