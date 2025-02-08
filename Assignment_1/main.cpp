@@ -10,6 +10,8 @@ void printSeparator()
 
 void testInvoice()
 {
+    cout << "============ Invoice - Default  ====================================" << endl;
+
     Invoice invoice;
 
     // Testing getters
@@ -21,8 +23,6 @@ void testInvoice()
 
     // Testing getInvoiceAmount
     cout << "Default invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
-
-    printSeparator();
 
     // Testing setters
     cout << "Setting new invoice parameters. " << endl;
@@ -40,8 +40,6 @@ void testInvoice()
     // Testing getInvoiceAmount
     cout << "New invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
-    printSeparator();
-
     // Testing negative amounts
     cout << "Testing negative amounts" << endl;
     invoice.setQtyPurchased(-5);
@@ -51,10 +49,10 @@ void testInvoice()
     invoice.setPricePerUnit(-12);
     cout << "Negative price per unit invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
-    printSeparator();
+    cout << "============ Invoice - Custom  ====================================" << endl;
 
     // Testing second constructor
-    Invoice testInvoice(
+    Invoice custom(
         "B0009",
         "This model focuses on high quality parts.",
         240,
@@ -62,17 +60,35 @@ void testInvoice()
         );
 
     cout << "Custom invoice parameters: " << endl;
-    cout << "Part Number: " << testInvoice.getPartNumber() << endl;
-    cout << "Part Desc: " << testInvoice.getPartDesc() << endl;
-    cout << "Quantity Purchased: " << testInvoice.getQtyPurchased() << endl;
-    cout << "Price Per Unit: " << testInvoice.getPricePerUnit() << "\n" << endl;
+    cout << "Part Number: " << custom.getPartNumber() << endl;
+    cout << "Part Desc: " << custom.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << custom.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << custom.getPricePerUnit() << "\n" << endl;
 
-    cout << "Custom invoice amount: " << testInvoice.getInvoiceAmount() << "\n" << endl;
+    cout << "Custom invoice amount: " << custom.getInvoiceAmount() << "\n" << endl;
+}
 
-    printSeparator();
+void testCopyInvoice()
+{
+    cout << "============ Invoice - Copy  ====================================" << endl;
+
+    Invoice invoice(
+    "CHOW_12",
+    "Best in class sound.",
+    4,
+    240
+    );
+
+    cout << "Original invoice parameters: " << endl;
+    cout << "Part Number: " << invoice.getPartNumber() << endl;
+    cout << "Part Desc: " << invoice.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << invoice.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
+
+    cout << "Original invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
     // Testing copy constructor
-    Invoice copiedInvoice(testInvoice);
+    Invoice copiedInvoice(invoice);
 
     cout << "Copied invoice parameters: " << endl;
     cout << "Part Number: " << copiedInvoice.getPartNumber() << endl;
@@ -86,6 +102,7 @@ void testInvoice()
 
 void testCloneInvoice()
 {
+    cout << "============ Invoice - Clone  ====================================" << endl;
     // Testing second constructor
     Invoice invoice(
         "MODELK123",
@@ -111,14 +128,13 @@ void testCloneInvoice()
     cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
 
     cout << "Cloned invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
-
-    printSeparator();
 }
 
 int main()
 {
     cout << "============ Start - Function Testing ============" << endl;
     testInvoice();
+    testCopyInvoice();
     testCloneInvoice();
     cout << "============ End - Function Testing ==============" << endl;
 
