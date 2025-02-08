@@ -24,6 +24,15 @@ Invoice::Invoice(
 
 }
 
+Invoice::Invoice(const Invoice& other) :
+    partNumber(other.partNumber),
+    partDesc(other.partDesc),
+    qtyPurchased(other.qtyPurchased),
+    pricePerUnit(other.pricePerUnit)
+{
+
+}
+
 // Getters ===================================================================================
 string Invoice::getPartNumber() const
 {

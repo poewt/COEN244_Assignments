@@ -70,7 +70,18 @@ void testInvoice()
     cout << "Custom invoice amount: " << testInvoice.getInvoiceAmount() << "\n" << endl;
 
     printSeparator();
-    
+
+    // Testing copy constructor
+    Invoice copiedInvoice(testInvoice);
+
+    cout << "Copied invoice parameters: " << endl;
+    cout << "Part Number: " << copiedInvoice.getPartNumber() << endl;
+    cout << "Part Desc: " << copiedInvoice.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << copiedInvoice.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << copiedInvoice.getPricePerUnit() << "\n" << endl;
+
+    cout << "Copied invoice amount: " << copiedInvoice.getInvoiceAmount() << "\n" << endl;
+
 }
 
 int main()

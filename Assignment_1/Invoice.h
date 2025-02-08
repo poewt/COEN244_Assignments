@@ -25,6 +25,7 @@ public:
         const int& qtyPurchased,
         const int& pricePerUnit
         );
+    Invoice(const Invoice& other);
 
     // Getters
     string getPartNumber() const;
