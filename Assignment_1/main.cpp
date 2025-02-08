@@ -3,15 +3,74 @@
 
 using namespace std;
 
+// GLOBAL TEST CASES
+int testCases = 0;
+int passCases = 0;
+int failCases = 0;
+
 void printSeparator()
 {
     cout << "==============================================================================" << endl;
 }
 
-void testInvoice()
+bool isInvoiceEqual(const Invoice& invoice1, const Invoice& invoice2)
+{
+    testCases++;
+    bool equal = true;
+
+    if (
+        invoice1.getPartNumber() != invoice2.getPartNumber() ||
+        invoice1.getPartDesc() != invoice2.getPartDesc() ||
+        invoice1.getQtyPurchased() != invoice2.getQtyPurchased() ||
+        invoice1.getPricePerUnit() != invoice2.getPricePerUnit() ||
+        invoice1.getInvoiceAmount() != invoice2.getInvoiceAmount()
+    )
+    {
+        equal = false;
+    }
+
+    if (equal)
+        passCases++;
+    else
+        failCases++;
+
+    return equal;
+}
+
+bool isInvoiceEqual(
+    const Invoice& invoice,
+    const string& partNumber,
+    const string& partDesc,
+    const int& qtyPurchased,
+    const int& pricePerUnit,
+    const int& invoiceAmount
+    )
+{
+    testCases++;
+    bool equal = true;
+
+    if (
+        invoice.getPartNumber() != partNumber ||
+        invoice.getPartDesc() != partDesc ||
+        invoice.getQtyPurchased() != qtyPurchased ||
+        invoice.getPricePerUnit() != pricePerUnit ||
+        invoice.getInvoiceAmount() != invoiceAmount
+    )
+    {
+        equal = false;
+    }
+
+    if (equal)
+        passCases++;
+    else
+        failCases++;
+
+    return equal;
+}
+
+bool testDefaultInvoice()
 {
     cout << "============ Invoice - Default  ====================================" << endl;
-
     Invoice invoice;
 
     // Testing getters
@@ -23,6 +82,46 @@ void testInvoice()
 
     // Testing getInvoiceAmount
     cout << "Default invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    // Status
+
+    return isInvoiceEqual(invoice, "0", "", 0, 0, 0);
+}
+
+bool testCustomInvoice()
+{
+    cout << "============ Invoice - Custom  ====================================" << endl;
+    // Testing second constructor
+    Invoice custom(
+        "B0009",
+        "This model focuses on high quality parts.",
+        240,
+        11
+        );
+
+    cout << "Custom invoice parameters: " << endl;
+    cout << "Part Number: " << custom.getPartNumber() << endl;
+    cout << "Part Desc: " << custom.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << custom.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << custom.getPricePerUnit() << "\n" << endl;
+
+    cout << "Custom invoice amount: " << custom.getInvoiceAmount() << "\n" << endl;
+
+    // Status
+    return isInvoiceEqual(
+        custom,
+        "B0009",
+        "This model focuses on high quality parts.",
+        240,
+        11,
+        2640
+        );
+}
+
+bool testSetters()
+{
+    cout << "============ Invoice - Setters ====================================" << endl;
+    Invoice invoice;
 
     // Testing setters
     cout << "Setting new invoice parameters. " << endl;
@@ -40,35 +139,66 @@ void testInvoice()
     // Testing getInvoiceAmount
     cout << "New invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
-    // Testing negative amounts
-    cout << "Testing negative amounts" << endl;
-    invoice.setQtyPurchased(-5);
-    cout << "Negative qty invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
-
-    invoice.setQtyPurchased(5);
-    invoice.setPricePerUnit(-12);
-    cout << "Negative price per unit invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
-
-    cout << "============ Invoice - Custom  ====================================" << endl;
-
-    // Testing second constructor
-    Invoice custom(
-        "B0009",
-        "This model focuses on high quality parts.",
-        240,
-        11
+    // Status
+    return isInvoiceEqual(
+        invoice,
+        "A1234",
+        "This model uses basic functions to run.",
+        2,
+        12,
+        24
         );
-
-    cout << "Custom invoice parameters: " << endl;
-    cout << "Part Number: " << custom.getPartNumber() << endl;
-    cout << "Part Desc: " << custom.getPartDesc() << endl;
-    cout << "Quantity Purchased: " << custom.getQtyPurchased() << endl;
-    cout << "Price Per Unit: " << custom.getPricePerUnit() << "\n" << endl;
-
-    cout << "Custom invoice amount: " << custom.getInvoiceAmount() << "\n" << endl;
 }
 
-void testCopyInvoice()
+bool testNegativeQty()
+{
+    cout << "============ Invoice - Negative Quantities ====================================" << endl;
+    Invoice negativeInvoice(
+    "NEGATIVE01",
+    "Testing for negative quantities.",
+    -20,
+    11
+    );
+    // Testing negative quantity
+    cout << "Testing negative quantity" << endl;
+    cout << "Negative qty invoice amount: " << negativeInvoice.getInvoiceAmount() << "\n" << endl;
+
+    // Status
+    return isInvoiceEqual(
+        negativeInvoice,
+        "NEGATIVE01",
+        "Testing for negative quantities.",
+        -20,
+        11,
+        0
+        );
+}
+
+bool testNegativePrice()
+{
+    cout << "============ Invoice - Negative Prices ====================================" << endl;
+    Invoice negativeInvoice(
+    "NEGATIVE01",
+    "Testing for negative prices",
+    20,
+    -11
+    );
+    // Testing negative quantity
+    cout << "Testing negative price" << endl;
+    cout << "Negative price invoice amount: " << negativeInvoice.getInvoiceAmount() << "\n" << endl;
+
+    // Status
+    return isInvoiceEqual(
+        negativeInvoice,
+        "NEGATIVE01",
+        "Testing for negative prices",
+        20,
+        -11,
+        0
+        );
+}
+
+bool testCopyInvoice()
 {
     cout << "============ Invoice - Copy  ====================================" << endl;
 
@@ -98,9 +228,11 @@ void testCopyInvoice()
 
     cout << "Copied invoice amount: " << copiedInvoice.getInvoiceAmount() << "\n" << endl;
 
+    // Status
+    return isInvoiceEqual(invoice, copiedInvoice);
 }
 
-void testCloneInvoice()
+bool testCloneInvoice()
 {
     cout << "============ Invoice - Clone  ====================================" << endl;
     // Testing second constructor
@@ -128,15 +260,25 @@ void testCloneInvoice()
     cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
 
     cout << "Cloned invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    // Status
+    return isInvoiceEqual(invoice, cloneInvoice);
 }
 
 int main()
 {
     cout << "============ Start - Function Testing ============" << endl;
-    testInvoice();
-    testCopyInvoice();
-    testCloneInvoice();
+    cout << "Test: " << (testDefaultInvoice() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testCustomInvoice() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testSetters() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testNegativeQty() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testNegativePrice() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testCopyInvoice() ? "pass" : "fail") << endl;
+    cout << "Test: " << (testCloneInvoice() ? "pass" : "fail") << endl;
     cout << "============ End - Function Testing ==============" << endl;
+
+    cout << "============ Statistics ==========================" << endl;
+    cout << passCases << "/" << testCases << " pass and " << failCases << "/" << testCases << " fail." << endl;
 
     return 0;
 }
