@@ -3,31 +3,59 @@
 #include <algorithm>
 using namespace std;
 
-void testDefaultEmployee()
+bool isEmployeeEqual(
+    const Employee& emp,
+    const string& firstName,
+    const string& lastName,
+    const int& monthlySalary)
 {
-    cout << "======= Employee - Default ========================" << endl;
+    bool isEqual = true;
+
+    if (emp.getFirstName() != firstName ||
+        emp.getLastName() != lastName ||
+        emp.getMonthlySalary() != monthlySalary
+        )
+    {
+        isEqual = false;
+    }
+
+    return isEqual;
+}
+
+bool testDefaultEmployee()
+{
+    cout << "======= Case - Default Constructor ========================" << endl;
 
     Employee employee;
 
     cout << "First Name: " << employee.getFirstName() << endl;
     cout << "Last Name: " << employee.getLastName() << endl;
     cout << "Monthly Salary: " << employee.getMonthlySalary() << endl;
+
+    return isEmployeeEqual(employee, "", "", 0);
 }
 
-void testCustomEmployee()
+bool testCustomEmployee()
 {
-    cout << "======= Employee - Custom ========================" << endl;
+    cout << "======= Case - Custom Constructor ========================" << endl;
 
     Employee employee("Jake", "Martinez", 3000);
 
     cout << "First Name: " << employee.getFirstName() << endl;
     cout << "Last Name: " << employee.getLastName() << endl;
     cout << "Monthly Salary: " << employee.getMonthlySalary() << endl;
+
+    return isEmployeeEqual(
+        employee,
+        "Jake",
+        "Martinez",
+        3000
+        );
 }
 
-void testSetters()
+bool testSetters()
 {
-    cout << "======= Employee - Setters ========================" << endl;
+    cout << "======= Case - Setters ========================" << endl;
 
     Employee employee;
 
@@ -38,22 +66,36 @@ void testSetters()
     cout << "First Name: " << employee.getFirstName() << endl;
     cout << "Last Name: " << employee.getLastName() << endl;
     cout << "Monthly Salary: " << employee.getMonthlySalary() << endl;
+
+    return isEmployeeEqual(
+        employee,
+        "Jim",
+        "Bob",
+        2000
+        );
 }
 
-void testNegativeSalaryConst()
+bool testNegativeSalaryConst()
 {
-    cout << "======= Employee - Negative Salary Constructor ========================" << endl;
+    cout << "======= Case - Negative Salary Constructor ========================" << endl;
 
     Employee employee("Anon", "Nymous", -5000);
 
     cout << "First Name: " << employee.getFirstName() << endl;
     cout << "Last Name: " << employee.getLastName() << endl;
     cout << "Monthly Salary: " << employee.getMonthlySalary() << endl;
+
+    return isEmployeeEqual(
+        employee,
+        "Anon",
+        "Nymous",
+        0
+        );
 }
 
-void testNegativeSalarySetter()
+bool testNegativeSalarySetter()
 {
-    cout << "======= Employee - Negative Salary Setter ========================" << endl;
+    cout << "======= Case - Negative Salary Setter ========================" << endl;
 
     Employee employee("Bobby", "Brown", 5000);
 
@@ -64,11 +106,18 @@ void testNegativeSalarySetter()
     cout << "Oops. Setting a negative salary..." << endl;
     employee.setMonthlySalary(-10000);
     cout << "New Monthly Salary: " << employee.getMonthlySalary() << endl;
+
+    return isEmployeeEqual(
+        employee,
+        "Bobby",
+        "Brown",
+        0
+        );
 }
 
-void testEmployeeRaise()
+bool testEmployeeRaise()
 {
-    cout << "======= Employee - Raises ========================" << endl;
+    cout << "======= Case - Raises ========================" << endl;
 
     Employee emp1("John", "Doe", 2500);
     Employee emp2("Sarah", "Jane", 2750);
@@ -83,6 +132,9 @@ void testEmployeeRaise()
     cout << emp1.getFirstName() << "'s new monthly salary: " << emp1.getMonthlySalary() << endl;
     cout << emp2.getFirstName() << "'s new monthly salary: " << emp2.getMonthlySalary() << endl;
 
+    return
+        isEmployeeEqual(emp1, "John", "Doe", 2750) &&
+            isEmployeeEqual(emp2, "Sarah", "Jane", 3025);
 }
 
 bool comp(const Employee& emp1, const Employee& emp2)
@@ -92,7 +144,7 @@ bool comp(const Employee& emp1, const Employee& emp2)
 
 bool testSortEmployeeSalary()
 {
-    cout << "======= Employee - Sort Employee Salary ========================" << endl;
+    cout << "======= Case - Sort Employee Salary ========================" << endl;
 
     Employee employees[] = {
         Employee("Alice", "Smith", 3200),
@@ -113,7 +165,7 @@ bool testSortEmployeeSalary()
     };
 
     const size_t size = sizeof(employees) / sizeof(employees[0]);
-    cout << size << endl;
+    cout << "Number of employees: " << size << endl;
 
 
     // Using sort instead of qsort for performance and safety
@@ -141,16 +193,13 @@ bool testSortEmployeeSalary()
 int main()
 {
     cout << "================ Start - Unit Testing ================" << endl;
-    testDefaultEmployee();
-    testCustomEmployee();
-    testSetters();
-    testNegativeSalaryConst();
-    testNegativeSalarySetter();
-    testEmployeeRaise();
-
-    string caseEmpSalSort = testSortEmployeeSalary() ? "PASS" : "FAIL";
-    cout << "The case for employee salary sort: " << caseEmpSalSort << endl;
-    
+    cout << (testDefaultEmployee() ? "PASS" : "FAIL") << endl;
+    cout << (testCustomEmployee() ? "PASS" : "FAIL") << endl;
+    cout << (testSetters() ? "PASS" : "FAIL") << endl;
+    cout << (testNegativeSalaryConst() ? "PASS" : "FAIL") << endl;
+    cout << (testNegativeSalarySetter() ? "PASS" : "FAIL") << endl;
+    cout << (testEmployeeRaise() ? "PASS" : "FAIL") << endl;
+    cout << (testSortEmployeeSalary() ? "PASS" : "FAIL") << endl;
     cout << "================ End - Unit Testing ================" << endl;
 
     return 0;
