@@ -1,3 +1,12 @@
+/*
+ * Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 8, 2025
+ * COEN 244 D
+ * Assignment 1
+ * Problem 2
+ */
+
 #include <iostream>
 #include "Employee.h"
 #include <algorithm>
