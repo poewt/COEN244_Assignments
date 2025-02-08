@@ -15,22 +15,21 @@ Employee::Employee(
     const string& firstName,
     const string& lastName,
     const int& monthlySalary
-    ) : firstName(firstName), lastName(lastName)
+    ) :
+    firstName(firstName),
+    lastName(lastName),
+    monthlySalary(monthlySalary <= 0 ? 0 : monthlySalary)
 {
-    if (monthlySalary <= 0)
-        this->monthlySalary = 0;
-    else
-        this->monthlySalary = monthlySalary;
+
 }
 
 Employee::Employee(const Employee &other ) :
     firstName(other.firstName),
-    lastName(other.lastName)
+    lastName(other.lastName),
+    monthlySalary(other.monthlySalary <= 0 ? 0 : other.monthlySalary)
+
 {
-    if (other.monthlySalary <= 0)
-        this->monthlySalary = 0;
-    else
-        this->monthlySalary = other.monthlySalary;
+
 }
 
 

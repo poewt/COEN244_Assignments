@@ -87,11 +87,14 @@ void testEmployeeRaise()
 
 int main()
 {
+    cout << "================ Start - Unit Testing ================" << endl;
     testDefaultEmployee();
     testCustomEmployee();
     testSetters();
     testNegativeSalaryConst();
     testNegativeSalarySetter();
     testEmployeeRaise();
+    cout << "================ End - Unit Testing ================" << endl;
+
     return 0;
 }
