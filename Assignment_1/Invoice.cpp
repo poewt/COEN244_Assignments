@@ -85,6 +85,11 @@ int Invoice::getInvoiceAmount() const
     return qtyPurchased * pricePerUnit;
 }
 
+Invoice Invoice::clone(const Invoice& inv) const
+{
+    return Invoice(inv);
+}
+
 // Destructor ================================================================================
 Invoice::~Invoice()
 {

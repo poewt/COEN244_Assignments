@@ -41,6 +41,7 @@ public:
 
     // Member Functions
     int getInvoiceAmount() const;
+    Invoice clone(const Invoice& inv) const;
 
     // Desctructor
     ~Invoice();

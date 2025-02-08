@@ -84,10 +84,42 @@ void testInvoice()
 
 }
 
+void testCloneInvoice()
+{
+    // Testing second constructor
+    Invoice invoice(
+        "MODELK123",
+        "Brand new store model.",
+        23,
+        50
+        );
+
+    cout << "Original invoice parameters: " << endl;
+    cout << "Part Number: " << invoice.getPartNumber() << endl;
+    cout << "Part Desc: " << invoice.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << invoice.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
+
+    cout << "Original invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    Invoice cloneInvoice = invoice.clone(invoice);
+
+    cout << "Cloned invoice parameters: " << endl;
+    cout << "Part Number: " << invoice.getPartNumber() << endl;
+    cout << "Part Desc: " << invoice.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << invoice.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
+
+    cout << "Cloned invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    printSeparator();
+}
+
 int main()
 {
     cout << "============ Start - Function Testing ============" << endl;
     testInvoice();
+    testCloneInvoice();
     cout << "============ End - Function Testing ==============" << endl;
 
     return 0;
