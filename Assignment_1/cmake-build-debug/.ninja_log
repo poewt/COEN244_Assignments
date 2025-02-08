@@ -1,0 +1,6 @@
+# ninja log v6
+4	780	7607351463398574	CMakeFiles/Assignment_1.dir/main.cpp.obj	61423e88b5586a81
+10	823	7607351463468591	CMakeFiles/Assignment_1.dir/Invoice.cpp.obj	492afc027fbe43ad
+823	1075	7607351471593616	Assignment_1.exe	122dd221d1f9393b
+28	549	7607352009075972	CMakeFiles/Assignment_1.dir/Invoice.cpp.obj	492afc027fbe43ad
+550	685	7607352014287153	Assignment_1.exe	122dd221d1f9393b
