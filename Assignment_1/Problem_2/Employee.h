@@ -18,13 +18,17 @@ private:
 public:
     // Constructors
     Employee();
-    Employee(string firstName, string lastName, int monthlySalary);
+    Employee(
+        const string& firstName,
+        const string& lastName,
+        const int& monthlySalary
+        );
 
     // Getters
     string getFirstName() const;
     string getLastName() const;
     int getMonthlySalary() const;
-    
+
     // Setters
     void setFirstName(const string& firstName);
     void setLastName(const string& lastName);
