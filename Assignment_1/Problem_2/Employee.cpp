@@ -23,6 +23,17 @@ Employee::Employee(
         this->monthlySalary = monthlySalary;
 }
 
+Employee::Employee(const Employee &other ) :
+    firstName(other.firstName),
+    lastName(other.lastName)
+{
+    if (other.monthlySalary <= 0)
+        this->monthlySalary = 0;
+    else
+        this->monthlySalary = other.monthlySalary;
+}
+
+
 // Getters ==============================================================
 string Employee::getFirstName() const
 {
@@ -63,6 +74,6 @@ void Employee::setMonthlySalary( const int &monthlySalary )
 // Destructor ==============================================================
 Employee::~Employee()
 {
-    
+
 }
 

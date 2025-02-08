@@ -23,6 +23,7 @@ public:
         const string& lastName,
         const int& monthlySalary
         );
+    Employee(const Employee& other);
 
     // Getters
     string getFirstName() const;
