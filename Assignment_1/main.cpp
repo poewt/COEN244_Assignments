@@ -12,16 +12,28 @@ void testInvoice()
     cout << "Part Number: " << invoice.getPartNumber() << endl;
     cout << "Part Desc: " << invoice.getPartDesc() << endl;
     cout << "Quantity Purchased: " << invoice.getQtyPurchased() << endl;
-    cout << "Price Per Unit: " << invoice.getPricePerUnit() << endl;
-
-    // Testing setters
-
-
-    // Testing second constructor
+    cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
 
     // Testing getInvoiceAmount
+    cout << "Default invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
 
+    // Testing setters
+    cout << "Setting new invoice parameters. " << endl;
+    invoice.setPartNumber("A1234");
+    invoice.setPartDesc("This model uses basic functions to run.");
+    invoice.setQtyPurchased(2);
+    invoice.setPricePerUnit(12);
 
+    cout << "New invoice parameters: " << endl;
+    cout << "Part Number: " << invoice.getPartNumber() << endl;
+    cout << "Part Desc: " << invoice.getPartDesc() << endl;
+    cout << "Quantity Purchased: " << invoice.getQtyPurchased() << endl;
+    cout << "Price Per Unit: " << invoice.getPricePerUnit() << "\n" << endl;
+
+    // Testing getInvoiceAmount
+    cout << "New invoice amount: " << invoice.getInvoiceAmount() << "\n" << endl;
+
+    // Testing second constructor
 }
 
 int main()
