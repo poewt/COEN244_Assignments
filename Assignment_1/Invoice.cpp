@@ -5,7 +5,7 @@
 #include "Invoice.h"
 
 // Constructors ===================================================================================
-Invoice::Invoice(): partNumber(""), partDesc(""), qtyPurchased(0), pricePerUnit(0)
+Invoice::Invoice(): partNumber("0"), partDesc(""), qtyPurchased(0), pricePerUnit(0)
 {
 
 }
