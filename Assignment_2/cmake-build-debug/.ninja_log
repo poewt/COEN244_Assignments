@@ -1,0 +1,23 @@
+# ninja log v6
+4	787	7617654093110132	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+11	794	7617654093180149	CMakeFiles/Assignment_2.dir/basePlusCommission.cpp.obj	24a600ccd195163
+16	840	7617654093240160	CMakeFiles/Assignment_2.dir/commission.cpp.obj	e47476e85525d682
+841	1074	7617654101481027	Assignment_2.exe	6909ae3a9077bccd
+8	693	7617654528458718	CMakeFiles/Assignment_2.dir/basePlusCommission.cpp.obj	24a600ccd195163
+694	843	7617654535310665	Assignment_2.exe	6909ae3a9077bccd
+9	676	7617659764684270	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+677	840	7617659771357491	Assignment_2.exe	6909ae3a9077bccd
+8	651	7617659931806173	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+652	798	7617659938238403	Assignment_2.exe	6909ae3a9077bccd
+9	665	7617661500515480	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+666	813	7617661507086969	Assignment_2.exe	6909ae3a9077bccd
+8	695	7617661859875855	CMakeFiles/Assignment_2.dir/basePlusCommission.cpp.obj	24a600ccd195163
+696	839	7617661866753574	Assignment_2.exe	6909ae3a9077bccd
+16	847	7617667709041766	CMakeFiles/Assignment_2.dir/basePlusCommission.cpp.obj	24a600ccd195163
+21	906	7617667709091785	CMakeFiles/Assignment_2.dir/commission.cpp.obj	e47476e85525d682
+9	713	7617668467093006	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+714	883	7617668474141927	Assignment_2.exe	6909ae3a9077bccd
+8	671	7617668810583418	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+672	813	7617668817221455	Assignment_2.exe	6909ae3a9077bccd
+9	687	7617669007490881	CMakeFiles/Assignment_2.dir/testDriver.cpp.obj	93fd686cf7b2e428
+688	831	7617669014280955	Assignment_2.exe	6909ae3a9077bccd
