@@ -13,18 +13,27 @@
 #include "commission.h"
 using namespace std;
 
-CommissionEmployee::CommissionEmployee( const string &fName, const string &lName, const string &sequence, double sales,
-                                        double rate )
-	: firstName(fName), lastName(lName), socialSecurityNumber(sequence), grossSales(sales), commissionRate(rate)
+CommissionEmployee::CommissionEmployee(
+	const string &fName,
+	const string &lName,
+	const string &sequence,
+	double sales,
+	double rate
+	) :
+	firstName(fName),
+	lastName(lName),
+	socialSecurityNumber(sequence),
+	grossSales(sales),
+	commissionRate(rate)
 {
 }
 
-CommissionEmployee::CommissionEmployee( const CommissionEmployee &other ) : firstName(other.firstName),
-                                                                            lastName(other.lastName),
-                                                                            socialSecurityNumber(
-	                                                                            other.socialSecurityNumber),
-                                                                            grossSales(other.grossSales),
-                                                                            commissionRate(other.commissionRate)
+CommissionEmployee::CommissionEmployee( const CommissionEmployee &other ) :
+	firstName(other.firstName),
+	lastName(other.lastName),
+	socialSecurityNumber(other.socialSecurityNumber),
+	grossSales(other.grossSales),
+	commissionRate(other.commissionRate)
 {
 }
 
