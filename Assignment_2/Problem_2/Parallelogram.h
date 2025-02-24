@@ -15,6 +15,9 @@ public:
     Parallelogram(const Parallelogram& other);
     double getAcuteAngleInRadian() const;
 
+    // Member Functions
+    void calculateNewAcuteAngle();
+
 };
 
 

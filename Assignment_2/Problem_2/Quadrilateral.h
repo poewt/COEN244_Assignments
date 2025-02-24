@@ -8,7 +8,7 @@
 
 
 class Quadrilateral : public Polygon {
-private:
+protected:
     double shorterSide;
     double longerSide;
     double side;

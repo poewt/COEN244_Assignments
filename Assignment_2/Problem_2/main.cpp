@@ -52,7 +52,7 @@ bool testParallelogram()
     cout << "Area: " << pl.area() << endl;
     cout << "Shorter Side: " << pl.getShorterSide() << endl;
     cout << "Longer Side: " << pl.getLongerSide() << endl;
-    cout << "Acute Angle: " << pl.getAcuteAngleInRadian() << endl;
+    cout << "Acute Angle (rad): " << pl.getAcuteAngleInRadian() << endl;
 
     return pl.area() == 24;
 }

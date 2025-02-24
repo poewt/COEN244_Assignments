@@ -9,7 +9,7 @@ using namespace std;
 Quadrilateral::Quadrilateral( const Point points[] )
     : Polygon(4, points)
 {
-    calculateNewSides();
+    Quadrilateral::calculateNewSides();
 }
 
 Quadrilateral::Quadrilateral( const Quadrilateral &other )
@@ -29,12 +29,19 @@ void Quadrilateral::setPoint( int index, double x, double y )
     Polygon::setPoint(index, x, y);
 }
 
+double Quadrilateral::getLongerSide() const
+{
+    return longerSide;
+}
+
+double Quadrilateral::getShorterSide() const
+{
+    return shorterSide;
+}
+
+
 double Quadrilateral::getSide() const
 {
-    if (side == 0)
-    {
-
-    }
     return side;
 }
 
@@ -64,16 +71,6 @@ void Quadrilateral::calculateNewSides()
     side = shortest;
     shorterSide = shortest;
     longerSide = longest;
-}
-
-double Quadrilateral::getLongerSide() const
-{
-    return longerSide;
-}
-
-double Quadrilateral::getShorterSide() const
-{
-    return shorterSide;
 }
 
 

@@ -3,12 +3,12 @@
 //
 
 #include "Parallelogram.h"
+#include <cmath>
 
 Parallelogram::Parallelogram( const Point points[] )
     : Quadrilateral(points)
 {
-    // Calculate acute angle here
-    acuteAngle = 0;
+    calculateNewAcuteAngle();
 }
 
 Parallelogram::Parallelogram( const Parallelogram &other )
@@ -19,7 +19,15 @@ Parallelogram::Parallelogram( const Parallelogram &other )
 
 double Parallelogram::getAcuteAngleInRadian() const
 {
+    return acuteAngle;
+}
 
+void Parallelogram::calculateNewAcuteAngle()
+{
+    // Formula to calculate acute angle given sides and area
+    // A = absin(angle)
+    // angle = arcsin(A/ab)
+    acuteAngle = asin(area() / (shorterSide * longerSide));
 }
 
 
