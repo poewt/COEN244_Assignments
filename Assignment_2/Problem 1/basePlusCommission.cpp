@@ -1,9 +1,14 @@
-//
-// Created by jake on 2025-02-20.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 1
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #include "basePlusCommission.h"
-
 #include <iomanip>
 #include <string>
 #include <sstream>
@@ -49,7 +54,7 @@ string BasePlusCommissionEmployee::toString() const
 {
     ostringstream out;
     out << fixed << setprecision(2);
-    out << "Commission Employee: " << firstName << " " << lastName
+    out << "BasePlusCommission Employee: " << firstName << " " << lastName
             << "\nSocial Security Number: " << socialSecurityNumber
             << "\nGross Sales: " << grossSales
             << "\nCommission Rate: " << commissionRate

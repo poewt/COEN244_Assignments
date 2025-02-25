@@ -3,6 +3,14 @@
  *
  *  Created on: Sep. 26, 2024
  *      Author: umroot
+ *
+ * Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 1
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
  */
 
 #ifndef COMMISSION_H_
