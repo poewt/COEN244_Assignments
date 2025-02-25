@@ -1,6 +1,12 @@
-//
-// Created by jake on 2025-02-24.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 2
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #include "Parallelogram.h"
 #include <cmath>
@@ -8,6 +14,8 @@
 Parallelogram::Parallelogram( const Point points[] )
     : Quadrilateral(points)
 {
+    // Calculate side, shorterSide, and longerSide
+    Quadrilateral::calculateNewSides();
     calculateNewAcuteAngle();
 }
 

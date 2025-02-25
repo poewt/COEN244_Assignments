@@ -1,6 +1,12 @@
-//
-// Created by jake on 2025-02-24.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 2
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #ifndef QUADRILATERAL_H
 #define QUADRILATERAL_H
@@ -16,10 +22,6 @@ public:
     Quadrilateral(const Point points[]);
     Quadrilateral(const Quadrilateral& other);
 
-    // Setters
-    void setPoint(int index, const Point& p) override;
-    void setPoint(int index, double x, double y) override;
-
     // Getters
     double getShorterSide() const;
     double getLongerSide() const;
@@ -28,7 +30,5 @@ public:
     // Member Functions
     virtual void calculateNewSides();
 };
-
-
 
 #endif //QUADRILATERAL_H

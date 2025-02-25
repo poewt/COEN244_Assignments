@@ -1,13 +1,15 @@
-//
-// Created by jake on 2025-02-24.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 2
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #include "Polygon.h"
-
-#include <iostream>
-#include <math.h>
-#include <ostream>
-#include <valarray>
+#include <cmath>
 using namespace std;
 
 Polygon::Polygon(const int& size, const Point points[] ) : size(size), points(new Point[size])
@@ -54,6 +56,7 @@ double Polygon::getLenBetweenPoints( const Point &p1, const Point &p2 )
 {
     const double x = p2.getX() - p1.getX();
     const double y = p2.getY() - p1.getY();
+    // pythagorean theorem
     return sqrt(x*x + y*y);
 }
 

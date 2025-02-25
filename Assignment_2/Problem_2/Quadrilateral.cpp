@@ -1,6 +1,12 @@
-//
-// Created by jake on 2025-02-24.
-//
+/*
+* Jacques Ivan Cacatian-Martinez
+ * 40291760
+ * February 25, 2025
+ * COEN 244 D
+ * Assignment 2
+ * Problem 2
+ * I certify that this submission is my original work and meets the Faculty's Expectation of Originality.
+ */
 
 #include "Quadrilateral.h"
 #include <iostream>
@@ -9,24 +15,13 @@ using namespace std;
 Quadrilateral::Quadrilateral( const Point points[] )
     : Polygon(4, points)
 {
-    Quadrilateral::calculateNewSides();
+
 }
 
 Quadrilateral::Quadrilateral( const Quadrilateral &other )
     : Polygon(other), shorterSide(other.shorterSide), longerSide(other.longerSide), side(other.side)
 {
 
-}
-
-void Quadrilateral::setPoint( int index, const Point &p )
-{
-    Polygon::setPoint(index, p);
-
-}
-
-void Quadrilateral::setPoint( int index, double x, double y )
-{
-    Polygon::setPoint(index, x, y);
 }
 
 double Quadrilateral::getLongerSide() const
